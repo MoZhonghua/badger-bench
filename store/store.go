@@ -20,7 +20,8 @@ package store
 import (
 	"strconv"
 
-	"github.com/dgraph-io/badger-bench/rdb"
+	// "github.com/dgraph-io/badger-bench/rdb"
+	rdb "github.com/tecbot/gorocksdb"
 )
 
 // Store contains some handles to RocksDB.
@@ -137,4 +138,4 @@ func (s *Store) NewSnapshot() *rdb.Snapshot { return s.db.NewSnapshot() }
 func (s *Store) SetSnapshot(snapshot *rdb.Snapshot) { s.ropt.SetSnapshot(snapshot) }
 
 // GetStats returns stats of our data store.
-func (s *Store) GetStats() string { return s.db.GetStats() }
+func (s *Store) GetStats() string { return s.db.GetProperty("rocksdb.stats") }

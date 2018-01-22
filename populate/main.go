@@ -239,7 +239,7 @@ func main() {
 		}
 	}()
 	go func() {
-		if err := http.ListenAndServe("0.0.0.0:8081", nil); err != nil {
+		if err := http.ListenAndServe("0.0.0.0:8088", nil); err != nil {
 			log.Fatalf("While opening http. Error: %v", err)
 		}
 	}()
